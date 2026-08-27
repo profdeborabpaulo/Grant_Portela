@@ -1,18 +1,24 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useColorScheme } from 'react-native';
+import { Stack } from "expo-router";
+import { StackTitle } from "expo-router/build/layouts/stack-utils";
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
+export default function layout () {
+  return(
+    <Stack>
+      <Stack.Screen
+      name= "index"
+      options={{
+        title:"agendadpr de tarefas"
+      }}
+      />
 
-SplashScreen.preventAutoHideAsync();
+    <Stack.Screen
+    name='nova-tarefa'
+    options={{
+      title: "nova Tarefa"
+    }}
+    />
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-  return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
-  );
+    </Stack>
+ 
+)
 }
